@@ -122,12 +122,12 @@ TextureImporter:
       name: slot-machine5_0
       rect:
         serializedVersion: 2
-        x: 228
-        y: 167
-        width: 110
-        height: 212
+        x: 229
+        y: 168
+        width: 368
+        height: 210
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: slot-machine5_1
-      rect:
-        serializedVersion: 2
-        x: 358
-        y: 167
-        width: 110
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49d9c1978045444c0800000000000000
-      internalID: -4304222948490961516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: slot-machine5_2
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 167
-        width: 110
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 120e2468cdc5e9f20800000000000000
-      internalID: 3431282068317986849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 40e1e903be705c046bbda75f845379ad
     internalID: 0
     vertices: []
     indices: 
@@ -196,11 +152,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":816.0,"y":624.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       slot-machine5_0: 2215180095291125890
-      slot-machine5_1: -4304222948490961516
-      slot-machine5_2: 3431282068317986849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
