@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public Text messageText;
     public Text payoutTableText;
     public Button spinButton;
+    public Text winText;
+    public GameObject winPopup;
 
     void OnEnable()
     {
@@ -29,12 +31,17 @@ public class UIManager : MonoBehaviour
     {
         messageText.text = "WIN!  +" + amount;
         messageText.color = Color.yellow;
+
+        winPopup.SetActive(true);
+        winText.text = "YOU WIN!  +" + amount;
     }
 
     public void ShowLose()
     {
         messageText.text = "Try Again";
         messageText.color = Color.white;
+
+        winPopup.SetActive(false);
     }
 
     public void ShowMessage(string msg)

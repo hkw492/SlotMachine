@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlotMachineManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class SlotMachineManager : MonoBehaviour
     public BalanceManager balanceManager;
     public UIManager uiManager;
     public SymbolDatabase database;
+
+    public Image leverImage;
+    public Sprite leverNormal;    
+    public Sprite leverPulled;    
 
     private bool isPlaying; 
 
@@ -29,6 +34,10 @@ public class SlotMachineManager : MonoBehaviour
         isPlaying = true;
         uiManager.SetSpinButtonInteractable(false);
 
+        
+        if (leverImage != null && leverPulled != null)
+            leverImage.sprite = leverPulled;
+
         balanceManager.PlaceBet();
 
         int[] results = rng.GenerateResults(reels.Length, database.symbols.Length);
@@ -41,6 +50,10 @@ public class SlotMachineManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             yield return new WaitUntil(() => !reels[i].IsSpinning());
         }
+
+        
+        if (leverImage != null && leverNormal != null)
+            leverImage.sprite = leverNormal;
 
         int payout = winChecker.CheckWin(results);
         if (payout > 0)
