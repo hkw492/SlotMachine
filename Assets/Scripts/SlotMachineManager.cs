@@ -15,6 +15,8 @@ public class SlotMachineManager : MonoBehaviour
     public Sprite leverNormal;    
     public Sprite leverPulled;    
 
+    public AudioManager audioManager;
+
     private bool isPlaying; 
 
     public void OnSpinButtonPressed()
@@ -33,14 +35,19 @@ public class SlotMachineManager : MonoBehaviour
     {
         isPlaying = true;
         uiManager.SetSpinButtonInteractable(false);
-
         
+        if (audioManager != null)
+            audioManager.PlayClick();
+
         if (leverImage != null && leverPulled != null)
             leverImage.sprite = leverPulled;
 
         balanceManager.PlaceBet();
 
         int[] results = rng.GenerateResults(reels.Length, database.symbols.Length);
+
+        if (audioManager != null)
+            audioManager.PlaySpin();
 
         for (int i = 0; i < reels.Length; i++)
             reels[i].Spin(results[i]);
@@ -51,7 +58,9 @@ public class SlotMachineManager : MonoBehaviour
             yield return new WaitUntil(() => !reels[i].IsSpinning());
         }
 
-        
+        if (audioManager != null)
+            audioManager.StopSpin();
+
         if (leverImage != null && leverNormal != null)
             leverImage.sprite = leverNormal;
 
@@ -61,10 +70,16 @@ public class SlotMachineManager : MonoBehaviour
             int totalWin = payout * balanceManager.GetBet();
             balanceManager.AddWinnings(totalWin);
             uiManager.ShowWin(totalWin);
+
+            if (audioManager != null)
+                audioManager.PlayWin();
         }
         else
         {
             uiManager.ShowLose();
+
+            if (audioManager != null)
+                audioManager.PlayLose();
         }
 
         isPlaying = false;

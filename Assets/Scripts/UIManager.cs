@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateBalanceDisplay(int balance)
     {
+        Debug.Log("UpdateBalanceDisplay called: " + balance);
         balanceText.text = "Balance: Rs " + balance;
     }
 

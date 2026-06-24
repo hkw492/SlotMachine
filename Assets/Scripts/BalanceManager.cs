@@ -8,6 +8,11 @@ public class BalanceManager : MonoBehaviour
     private int betAmount = 10;
     public bool CanBet() => balance >= betAmount;
 
+    void Start()
+    {
+        OnBalanceChanged?.Invoke(balance);
+    }
+
     public void PlaceBet()
     {
         balance -= betAmount;
