@@ -5,9 +5,9 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public Text balanceText;     
-    public Text messageText;      
-    public Text payoutTableText;  
+    public Text balanceText;
+    public Text messageText;
+    public Text payoutTableText;
     public Button spinButton;
 
     void OnEnable()

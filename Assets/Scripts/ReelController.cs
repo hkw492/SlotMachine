@@ -6,12 +6,12 @@ public class ReelController : MonoBehaviour
 {
     public Image[] symbolImages;
     public SymbolDatabase database;
-    public float spinSpeed = 600f;     
-    public float spinDuration = 2f;    
-    private int result;                 
-    private bool isSpinning;            
-    private RectTransform[] rects;     
-    private float symbolHeight = 150f;  
+    public float spinSpeed = 600f;
+    public float spinDuration = 2f;
+    private int result;
+    private bool isSpinning;
+    private RectTransform[] rects;
+    private float symbolHeight = 150f;
     void Awake()
     {
         rects = new RectTransform[symbolImages.Length];
@@ -34,13 +34,13 @@ public class ReelController : MonoBehaviour
             for (int i = 0; i < rects.Length; i++)
             {
                 Vector2 pos = rects[i].anchoredPosition;
-                pos.y -= spinSpeed * Time.deltaTime;              
+                pos.y -= spinSpeed * Time.deltaTime;
                 if (pos.y < -symbolHeight * 1.5f)
                     pos.y += symbolHeight * rects.Length;
                 rects[i].anchoredPosition = pos;
             }
             elapsed += Time.deltaTime;
-            yield return null;  
+            yield return null;
         }
         SetResult(result);
         isSpinning = false;
