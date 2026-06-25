@@ -35,12 +35,17 @@ public class SlotMachineManager : MonoBehaviour
     {
         isPlaying = true;
         uiManager.SetSpinButtonInteractable(false);
-        
+        uiManager.SetBetButtonsInteractable(false);
+
         if (audioManager != null)
             audioManager.PlayClick();
 
-        if (leverImage != null && leverPulled != null)
+        if (leverImage != null && leverPulled != null && leverNormal != null)
+        {
             leverImage.sprite = leverPulled;
+            yield return new WaitForSeconds(0.3f);
+            leverImage.sprite = leverNormal;
+        }
 
         balanceManager.PlaceBet();
 
@@ -84,5 +89,6 @@ public class SlotMachineManager : MonoBehaviour
 
         isPlaying = false;
         uiManager.SetSpinButtonInteractable(true);
+        uiManager.SetBetButtonsInteractable(true);
     }
 }

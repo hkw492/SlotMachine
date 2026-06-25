@@ -12,6 +12,12 @@ public class UIManager : MonoBehaviour
     public Text winText;
     public GameObject winPopup;
 
+    public Text betText;
+    public BalanceManager balanceManager;
+
+    public Button increaseBetButton;
+    public Button decreaseBetButton;
+
     void OnEnable()
     {
         BalanceManager.OnBalanceChanged += UpdateBalanceDisplay;
@@ -26,6 +32,8 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("UpdateBalanceDisplay called: " + balance);
         balanceText.text = "Balance: Rs " + balance;
+        if (betText != null && balanceManager != null)
+            betText.text = "Bet: " + balanceManager.GetBet();
     }
 
     public void ShowWin(int amount)
@@ -54,5 +62,11 @@ public class UIManager : MonoBehaviour
     public void SetSpinButtonInteractable(bool state)
     {
         spinButton.interactable = state;
+    }
+
+    public void SetBetButtonsInteractable(bool state)
+    {
+        if (increaseBetButton != null) increaseBetButton.interactable = state;
+        if (decreaseBetButton != null) decreaseBetButton.interactable = state;
     }
 }
